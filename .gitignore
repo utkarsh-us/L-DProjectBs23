@@ -1,0 +1,15 @@
+# Ignore Python cache and environment files
+__pycache__/
+*.py[cod]
+*.env
+.venv/
+venv/
+seleniumbs23/
+
+# Ignore IDE/editor-specific files
+.idea/
+.vscode/
+
+# Ignore OS-specific files
+*.DS_Store
+*.log
