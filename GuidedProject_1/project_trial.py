@@ -1,7 +1,7 @@
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service as ChromeService
 from webdriver_manager.chrome import ChromeDriverManager
-from selenium.webdriver.common.by import By  # You need to import By
+from selenium.webdriver.common.by import By
 import time
 
 # Initialize the WebDriver
@@ -27,7 +27,8 @@ link_dictionary = {}
 for locator in locator_list:
     try:
         # Wait for the element to load
-        time.sleep(2)  # Add a delay to ensure page is loaded
+        time.sleep(10)  # Add a delay to ensure page is loaded
+        print(f"Trying to locate: {locator}")  # Debug print
 
         # Locate the element using the CSS selector
         div_element = driver.find_element(By.CSS_SELECTOR, locator)
@@ -46,15 +47,14 @@ for locator in locator_list:
         
         # Add the collected info to the dictionary
         link_dictionary[locator] = info_list
+        print(f"Found {len(info_list)} links in {locator}")  # Debug print
 
     except Exception as e:
         print(f"Error with locator {locator}: {e}")
 
-# Print the scraped data
-print(link_dictionary)
-
-# Rest of your code
-time.sleep(20)  # For demonstration purposes
+# Formatting the print  
+for key, value in link_dictionary.items():
+    print(f'{key} - {len(value)} links')
 
 # Close the driver when done
 driver.quit()
