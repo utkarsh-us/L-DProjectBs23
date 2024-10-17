@@ -10,20 +10,10 @@ import time
 driver = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()))
 
 # Navigate to the webpage
-driver.get("https://en.wikipedia.org/wiki/Main_Page")
+driver.get("https://python.org")
 
-#click on a link 
-driver.switch_to.new_window('tab')
-
-# get window handles 
-window1 = driver.current_window_handle
-print(window1)
-#new window new url 
-driver.get("https://books.toscrape.com/")
-
-# List all the window handles currently available
-windows2 = driver.window_handles
-
+# driver get cookies
+driver.get_cookies()
 
 
 # Close the current Widnows 
