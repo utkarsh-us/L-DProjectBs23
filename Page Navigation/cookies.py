@@ -10,11 +10,12 @@ import time
 driver = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()))
 
 # Navigate to the webpage
-driver.get("https://python.org")
+driver.get("https://www.rwth-aachen.de/go/id/a/?lidx=1")
 
 # driver get cookies
-driver.get_cookies()
-
+time.sleep(10)
+cookies = driver.get_cookies()
+print("Cookies collected:", cookies)
 
 # Close the current Widnows 
 driver.close()  
